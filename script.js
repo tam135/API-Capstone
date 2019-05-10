@@ -14,10 +14,11 @@ function displayResults(responseJson) {
     const moviePoster = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2'
     //display searched movie
     $('#searched-movie').append(
-        `<img class = "moviePoster" src='${moviePoster}/${responseJson.poster_path}' alt='Poster Image'>
-            <p>Title: ${responseJson.title}/10</p>
-            <p>Vote Average: ${responseJson.vote_average}</p>
-            </li`
+        `<h2>${responseJson.title}</h2>
+        <img class = "moviePoster" src='${moviePoster}/${responseJson.poster_path}' alt='Poster Image'>
+        <p>${responseJson.overview}</p>
+        <p>Rating: ${responseJson.vote_average}/10</p>
+        </li`
     )
     $('#movie').removeClass('movie-hidden');
 
