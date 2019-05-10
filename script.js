@@ -2,28 +2,63 @@
 
 const apiKey = 'ad9322196147d012dd47c49a6a9555d7';
 
+//displays movies and details after submitting a search
 function displayResults(responseJson) {
-    console.log(responseJson);
-    const tumbImage = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2'
-    $('#results-list').empty();
-    for (let i = 0; i < responseJson.results.length; i++) {
-        $('#results-list').append(
-            `<img id = "moviePoster" src='${tumbImage}/${responseJson.results[i].poster_path}' alt='Poster Image'>
-            <li><h3>${responseJson.results[i].overview}<h3>
-            <p>Rating: ${responseJson.results[i].vote_average}/10</p>
-            <p>Release Date: ${responseJson.results[i].release_date}</p>
+    console.log(responseJson)
+    $('#searched-movie').empty();
+    $('#recommendation-list').empty();
+
+
+
+
+    const moviePoster = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2'
+    //display searched movie
+    $('#searched-movie').append(
+        `<img class = "moviePoster" src='${moviePoster}/${responseJson.poster_path}' alt='Poster Image'>
+            <p>Title: ${responseJson.title}/10</p>
+            <p>Vote Average: ${responseJson.vote_average}</p>
             </li`
-        )
-    };
-    $('#results').removeClass('hidden');
+    )
+    $('#movie').removeClass('movie-hidden');
+
+    //display recommended movies
+    const results = responseJson.recommendations.results;
+    results.forEach(i => {
+        $('#recommendation-list').append(
+            `<h2>${i.original_title}</h2>
+        <img class = "moviePoster" src='${moviePoster}/${i.poster_path}' alt='Poster Image'>
+        <li><p>${i.overview}<p>
+        <p>Rating: ${i.vote_average}/10</p>
+        </li></div>`
+        );
+        $('#recommendation').removeClass('hidden');
+    });
 }
 
 
-function getMovie(movie) {
-    console.log('getMovie ran')
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movie}`;
 
-    console.log(url)
+//searches for the movie
+function getMovie(movie, responseJson) {
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movie}`;
+    fetch(url)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson =>
+            getRecommendations(responseJson))
+
+        .catch(err => {
+            $('#js-error-message').text(`Something went wrong: Did you spell it right?`);
+        });
+}
+
+//retrieves list of recommended movies and details from api
+function getRecommendations(responseJson) {
+    const movieId = responseJson.results[0].id
+    const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&append_to_response=recommendations`;
 
     fetch(url)
         .then(response => {
@@ -34,9 +69,11 @@ function getMovie(movie) {
         })
         .then(responseJson => displayResults(responseJson))
         .catch(err => {
-            $('#js-error-message').text(`Something went wrong: ${err.message}`);
+            $('#js-error-message').text(`Something went wrong: Did you spell it right?`);
         });
 }
+
+
 
 function watchForm() {
     $('form').submit(event => {

@@ -23,6 +23,14 @@ button:hover {
     color: red;
 }
 
-#moviePoster {
+.moviePoster {
   width: 200px;
+}
+
+.hidden {
+  display: none;
+}
+
+.movie-hidden {
+  display: none;
 }
