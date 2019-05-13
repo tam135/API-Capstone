@@ -8,17 +8,16 @@ body {
 
 button, input[type="text"] {
   padding: 5px;
+ 
 }
 
 button:hover {
   cursor: pointer;
 }
 
-.container {
-  max-width: 600px;
-  margin: 0 auto;
+.headers {
+  text-align: center;
 }
-
 .error-message {
     color: red;
 }
@@ -33,4 +32,8 @@ button:hover {
 
 .movie-hidden {
   display: none;
+}
+
+form {
+  text-align: center;
 }

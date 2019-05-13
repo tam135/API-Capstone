@@ -4,21 +4,18 @@ const apiKey = 'ad9322196147d012dd47c49a6a9555d7';
 
 //displays movies and details after submitting a search
 function displayResults(responseJson) {
-    console.log(responseJson)
     $('#searched-movie').empty();
     $('#recommendation-list').empty();
-
-
-
-
     const moviePoster = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2'
     //display searched movie
     $('#searched-movie').append(
-        `<h2>${responseJson.title}</h2>
-        <img class = "moviePoster" src='${moviePoster}/${responseJson.poster_path}' alt='Poster Image'>
-        <p>${responseJson.overview}</p>
-        <p>Rating: ${responseJson.vote_average}/10</p>
-        </li`
+        `<div class = "searched-movie">
+            <h2>${responseJson.title}</h2>
+            <img class = "moviePoster" src='${moviePoster}/${responseJson.poster_path}' alt='Poster Image'>
+            <p>${responseJson.overview}</p>
+            <p> ${responseJson.title}</p>
+            <p>Rating:${responseJson.vote_average}/10</p>
+            </li></div>`
     )
     $('#movie').removeClass('movie-hidden');
 
@@ -26,7 +23,8 @@ function displayResults(responseJson) {
     const results = responseJson.recommendations.results;
     results.forEach(i => {
         $('#recommendation-list').append(
-            `<h2>${i.original_title}</h2>
+            `<div class = "movie-recs">
+        <h2>${i.original_title}</h2>
         <img class = "moviePoster" src='${moviePoster}/${i.poster_path}' alt='Poster Image'>
         <li><p>${i.overview}<p>
         <p>Rating: ${i.vote_average}/10</p>
@@ -35,8 +33,6 @@ function displayResults(responseJson) {
         $('#recommendation').removeClass('hidden');
     });
 }
-
-
 
 //searches for the movie
 function getMovie(movie, responseJson) {
@@ -48,12 +44,14 @@ function getMovie(movie, responseJson) {
             }
             throw new Error(response.statusText);
         })
-        .then(responseJson =>
-            getRecommendations(responseJson))
+        .then(responseJson => {
+            return getRecommendations(responseJson)
 
+        })
         .catch(err => {
             $('#js-error-message').text(`Something went wrong: Did you spell it right?`);
         });
+
 }
 
 //retrieves list of recommended movies and details from api
@@ -73,8 +71,6 @@ function getRecommendations(responseJson) {
             $('#js-error-message').text(`Something went wrong: Did you spell it right?`);
         });
 }
-
-
 
 function watchForm() {
     $('form').submit(event => {
