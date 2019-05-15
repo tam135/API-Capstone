@@ -9,13 +9,10 @@ function displayResults(responseJson) {
     const moviePoster = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2'
     //display searched movie
     $('#searched-movie').append(
-        `<div class = "searched-movie">
-            <h2>${responseJson.title}</h2>
-            <img class = "moviePoster" src='${moviePoster}/${responseJson.poster_path}' alt='Poster Image'>
-            <p>${responseJson.overview}</p>
-            <p> ${responseJson.title}</p>
-            <p>Rating:${responseJson.vote_average}/10</p>
-            </li></div>`
+        `<img id = "moviePoster1" src='${moviePoster}/${responseJson.poster_path}' alt='Poster Image'>
+        <h3>${responseJson.title}</h3>
+        <p>Rating:${responseJson.vote_average}/10</p>
+        <p>${responseJson.overview}</p>`
     )
     $('#movie').removeClass('movie-hidden');
 
@@ -24,8 +21,8 @@ function displayResults(responseJson) {
     results.forEach(i => {
         $('#recommendation-list').append(
             `<div class = "movie-recs">
-        <h2>${i.original_title}</h2>
-        <img class = "moviePoster" src='${moviePoster}/${i.poster_path}' alt='Poster Image'>
+        <h3>${i.original_title}</h3>
+        <img class = "moviePoster2" src='${moviePoster}/${i.poster_path}' alt='Poster Image'>
         <li><p>${i.overview}<p>
         <p>Rating: ${i.vote_average}/10</p>
         </li></div>`

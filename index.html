@@ -12,30 +12,31 @@
 </head>
 
 <body>
-    <div></div>
 
-        <h1 class = "headers">Movie Finder</h1>
+    <div class="container">
+        <h1>Movie Finder</h1>
         <form id="js-form">
-            <label for="search-movie">Enter a movie and you will be recommended a list of other similar ones to
-                enjoy</label>
-            <input type="text" name="search-movie" id="js-search-movie" required>
-            <input type="submit" value="Find more movies!">
-        </form>
-        <p id="js-error-message" class="error-message"></p>
-        <section id="movie" class="movie-hidden">
-            <h2 class = "headers">Here is your movie</h2>
-            <ul id="searched-movie">
-            </ul>
-        </section>
-
-        <section id="recommendation" class="hidden">
-            <h2 class = "headers">You should also check out these movies</h2>
-            <ul id="recommendation-list">
-            </ul>
-        </section>
+            <label for="search-movie">Enter a movie and you will be recommended a list of similar ones to enjoy</label>
+            <input type="text" name="search-movie" id="js-search-movie" required placeholder="Avengers: Endgame">
+            <input type="submit" value="Find movies!">
 
 
-        <p id="js-error-message" class="error-message"></p>
+    </div>
+    <p id="js-error-message" class="error-message"></p>
+    <section id="movie" class="movie-hidden">
+
+        <ul id="searched-movie">
+        </ul>
+    </section>
+
+    <section id="recommendation" class="hidden">
+        <h2>You should also check out these movies</h2>
+        <ul id="recommendation-list">
+        </ul>
+    </section>
+
+
+    <p id="js-error-message" class="error-message"></p>
     </div>
     <script src="script.js"></script>
 </body>
