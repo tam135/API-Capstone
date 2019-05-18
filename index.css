@@ -3,9 +3,10 @@
   }
   
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Barlow', sans-serif;
     background-image: url('background.png');
-    background-repeat
+    font-weight: bolder;
+    font-size: 20px;
   }
   
  button, input[type="text"] {
@@ -13,27 +14,37 @@ body {
  }
   
 .container {
-    width: 45%;
+    min-width: 45%;
     margin: auto auto;
     text-align: center
   }
-  
+
+#js-error-message {
+  text-align: center;
+  color: #CE0D06;
+
+}
   
 input[type="submit"], input[type="text"] {
-    margin-top: 3%;
-    
+    margin-top: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 2px black;
 }
 
 input[type="submit"]:hover {
     cursor: pointer;
 }
+
 input[type="submit"] {
     margin-left: 1em;
-    border-radius: 2px;
+    border-radius: 5px;
+    height: 25px;
+    width: 100px;
+    background-color: #E1EDF8;
 }
 
 input[type="text"] {
-    
+    border-radius: 3px;
 } 
 
 .error-message {
@@ -41,21 +52,32 @@ input[type="text"] {
   }
   
 #movie {
-    width: 45%;
+    width: 750px;
     margin: auto;
-    
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 450px;
+    background-color: rgba(0, 0, 0, 0.2); 
 }
+
+
+
+.description1 {
+  padding-top: .5em;
+}
+
 #moviePoster1 {
     width: 200px;
-    height: 250px;
+    height: 20rem;
     float: left;
-    margin-right: 1em;
+    margin-right: 1em;    
+    margin-top: 1em;
+    
 }
 
 h2 {
     text-align: center;
-    margin-top: 7%;
-    clear: left;
+
 }
 
 
@@ -63,9 +85,7 @@ h2 {
     width: 150px;
     height: 200px;
 }
-.movie-recs {
-    clear: left;
-}
+
   
 .hidden {
    display: none;
@@ -75,8 +95,79 @@ h2 {
     display: none;
   }
 
-  h1 {
-      text-align: center;
+h1 {
+  text-align: center;
+}
+  
+h1, h2, h3 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: bolder;
+}
+
+#recommendation {
+  margin-top: 3%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+
+#recommendation-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-recs {
+  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0.2); 
+  border-radius: 5px;
+  width: 250px;
+  height: 375px;
+  margin: 20px;
+  font-size: 18px;
+  padding-left: 2%;
+  padding-right: 2%;
+  text-align: center;
+}
+
+
+@media screen and (min-width : 360px) and (max-width: 760px) {
+   body {
+     font-size: 12px;
+   }
+  
+  #movie {
+    width: 90%;
+    margin: auto;
+    border: 1px solid black;
+    height: 250px;
+  } 
+
+  #moviePoster1 {
+    width: 30%;
+    height: 200px;
+    float: left;
   }
 
-  
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  body {
+    font-size: 16px;
+  }
+
+  #movie {
+    width: 550px;
+    margin: auto;
+    border: 1px solid black;
+    height: 350px;
+  } 
+
+  #moviePoster1 {
+    width: 200px;
+    height: 250px;
+    float: left;
+
+  }
+}

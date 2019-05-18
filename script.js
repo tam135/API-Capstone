@@ -10,12 +10,14 @@ function displayResults(responseJson) {
     //display searched movie
     $('#searched-movie').append(
         `<img id = "moviePoster1" src='${moviePoster}/${responseJson.poster_path}' alt='Poster Image'>
+        <div class = "description1">
         <h3>${responseJson.title}</h3>
         <p>Rating:${responseJson.vote_average}/10</p>
-        <p>${responseJson.overview}</p>`
+        <p>${responseJson.overview}</p></div>`
     )
     $('#movie').removeClass('movie-hidden');
 
+    //<p id = "rating">Rating: ${i.vote_average}/10</p>
     //display recommended movies
     const results = responseJson.recommendations.results;
     results.forEach(i => {
@@ -23,9 +25,8 @@ function displayResults(responseJson) {
             `<div class = "movie-recs">
         <h3>${i.original_title}</h3>
         <img class = "moviePoster2" src='${moviePoster}/${i.poster_path}' alt='Poster Image'>
-        <li><p>${i.overview}<p>
-        <p>Rating: ${i.vote_average}/10</p>
-        </li></div>`
+
+        </div>`
         );
         $('#recommendation').removeClass('hidden');
     });
