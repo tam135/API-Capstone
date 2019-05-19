@@ -4,6 +4,7 @@ const apiKey = 'ad9322196147d012dd47c49a6a9555d7';
 
 //displays movies and details after submitting a search
 function displayResults(responseJson) {
+    console.log(responseJson)
     $('#searched-movie').empty();
     $('#recommendation-list').empty();
     const moviePoster = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2'
@@ -17,16 +18,22 @@ function displayResults(responseJson) {
     )
     $('#movie').removeClass('movie-hidden');
 
-    //<p id = "rating">Rating: ${i.vote_average}/10</p>
+
     //display recommended movies
     const results = responseJson.recommendations.results;
     results.forEach(i => {
         $('#recommendation-list').append(
-            `<div class = "movie-recs">
-        <h3>${i.original_title}</h3>
-        <img class = "moviePoster2" src='${moviePoster}/${i.poster_path}' alt='Poster Image'>
-
-        </div>`
+        `<div class = "movie-recs">
+            <div class = "cardFront">
+                <h4>${i.original_title}</h3>
+                <img class = "moviePoster2" src='${moviePoster}/${i.poster_path}' alt='Poster Image'>
+            </div>
+            <div class = "cardBack">
+                <p class = "description2">Rating: ${i.vote_average}/10</p>
+                <p class = "description2">Release date: ${i.release_date}</p>
+                <p class = "description2">${i.overview}</p>
+               
+            </div>`
         );
         $('#recommendation').removeClass('hidden');
     });
@@ -35,6 +42,7 @@ function displayResults(responseJson) {
 //searches for the movie
 function getMovie(movie, responseJson) {
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movie}`;
+    console.log(responseJson)
     fetch(url)
         .then(response => {
             if (response.ok) {
