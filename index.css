@@ -41,7 +41,7 @@ input[type="submit"], input[type="text"] {
 
 input[type="submit"]:hover {
     cursor: pointer;
-    background: #1BC47F;
+    background: #0CA132;
     color: white;
 }
 

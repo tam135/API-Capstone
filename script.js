@@ -2,12 +2,11 @@
 
 const apiKey = 'ad9322196147d012dd47c49a6a9555d7';
 
-//displays movies and details after submitting a search
 function displayResults(responseJson) {
-    console.log(responseJson)
     $('#searched-movie').empty();
     $('#recommendation-list').empty();
     const moviePoster = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2'
+
     //display searched movie
     $('#searched-movie').append(
         `<img id = "moviePoster1" src='${moviePoster}/${responseJson.poster_path}' alt='Poster Image'>
@@ -17,7 +16,6 @@ function displayResults(responseJson) {
         <p>${responseJson.overview}</p></div>`
     )
     $('#movie').removeClass('movie-hidden');
-
 
     //display recommended movies
     const results = responseJson.recommendations.results;
@@ -51,7 +49,7 @@ function getMovie(movie, responseJson) {
             throw new Error(response.statusText);
         })
         .then(responseJson => {
-            return getRecommendations(responseJson)
+            getRecommendations(responseJson)
 
         })
         .catch(err => {
@@ -72,11 +70,14 @@ function getRecommendations(responseJson) {
             }
             throw new Error(response.statusText);
         })
-        .then(responseJson => displayResults(responseJson))
+        .then(responseJson =>
+            displayResults(responseJson))
         .catch(err => {
             $('#js-error-message').text(`Something went wrong: Did you spell it right?`);
         });
 }
+
+
 function homeButton() {
     $('.fas').on('click', function (event) {
         event.preventDefault();
@@ -89,7 +90,7 @@ function watchForm() {
         event.preventDefault();
         const searchMovie = $('#js-search-movie').val();
         getMovie(searchMovie);
-        
+        $('.error-message').empty();
     });
     homeButton();
 }
