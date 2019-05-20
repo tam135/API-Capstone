@@ -40,7 +40,6 @@ function displayResults(responseJson) {
 //searches for the movie
 function getMovie(movie, responseJson) {
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${movie}`;
-    console.log(responseJson)
     fetch(url)
         .then(response => {
             if (response.ok) {
