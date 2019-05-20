@@ -1,8 +1,20 @@
 # API-Capstone
 
-Ever watched an amazing movie and wanted to find more movies that are similar to that one? This app lets users enter in a movie and receive a list of recommended movies.
 
-Live Site: https://tam135.github.io/API-Project--Movie-Finder/
+## Live site
+https://tam135.github.io/API-Project--Movie-Finder/
 
-Built with HTML, CSS Javascript, jQuery, and theMovieDB API
+## Summary
+Ever watched an amazing movie and wanted to find more movies that are similar to that one? This app lets users search up a movie and receive a list of recommended movies.
+
+## Technologies Used
+Built with HTML, CSS Javascript, jQuery, and used theMovieDB API
+
+## Screenshots
+
+![Home Page](screenshot1.png?raw=true)
+
+![Home Page](screenshot2.png?raw=true)
+
+![Home Page](screenshot3.png?raw=true)
 
