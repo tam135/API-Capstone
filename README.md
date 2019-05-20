@@ -12,9 +12,12 @@ Built with HTML, CSS Javascript, jQuery, and used theMovieDB API
 
 ## Screenshots
 
+Home Page
 ![Home Page](screenshot1.png?raw=true)
 
+Searching for a movie:
 ![Home Page](screenshot2.png?raw=true)
 
+Lists of recommended movies as well as the over when you hover over a movie
 ![Home Page](screenshot3.png?raw=true)
 
