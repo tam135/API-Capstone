@@ -18,6 +18,6 @@ Home Page
 Searching for a movie:
 ![Home Page](screenshot2.png?raw=true)
 
-Lists of recommended movies as well as the over when you hover over a movie
+Lists of recommended movies as well as the overview when you hover over a movie
 ![Home Page](screenshot3.png?raw=true)
 
