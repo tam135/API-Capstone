@@ -8,9 +8,17 @@ body {
     font-weight: bolder;
     font-size: 20px;
   }
+
   
  button, input[type="text"] {
     padding: 5px;
+ }
+
+ .fas {
+   margin-left: 15px;
+ }
+ .fas:hover {
+   cursor: pointer;
  }
   
 .container {
@@ -33,11 +41,13 @@ input[type="submit"], input[type="text"] {
 
 input[type="submit"]:hover {
     cursor: pointer;
+    background: #1BC47F;
+    color: white;
 }
 
 input[type="submit"] {
     margin-left: 1em;
-    border-radius: 3px;
+    border-radius: 15px;
     height: 25px;
     width: 100px;
     background-color: #28CDBB;
@@ -71,7 +81,7 @@ input[type="text"] {
 }
 #moviePoster1 {
     width: 200px;
-    height: 20rem;
+    height: 21rem;
     float: left;
     margin-right: 1em;    
     margin-top: 1em;
@@ -84,8 +94,6 @@ input[type="text"] {
     height: 250px;
     margin-left: 15px;
     margin-right: 15px;
-
-  
 }
 
   

@@ -77,13 +77,21 @@ function getRecommendations(responseJson) {
             $('#js-error-message').text(`Something went wrong: Did you spell it right?`);
         });
 }
+function homeButton() {
+    $('.fas').on('click', function (event) {
+        event.preventDefault();
+        location.reload();
+    });
+}
 
 function watchForm() {
     $('form').submit(event => {
         event.preventDefault();
         const searchMovie = $('#js-search-movie').val();
         getMovie(searchMovie);
+        
     });
+    homeButton();
 }
 
 $(watchForm);

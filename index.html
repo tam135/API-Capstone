@@ -10,35 +10,45 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Barlow|Noto+Sans+JP:700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>Movie Finder</h1>
-        <form id="js-form">
-            <label for="search-movie">Enter a movie and you will be recommended a list of similar ones to enjoy</label> </br>
-            <input type="text" name="search-movie" id="js-search-movie" required placeholder="Avengers: Endgame">
-            <input type="submit" value="Find movies!">
-        </form>
-
-    </div>
-    <p id="js-error-message" class="error-message"></p>
-    <section id="movie" class="movie-hidden">
-
-        <ul id="searched-movie">
-        </ul>
-    </section>
-
-    <section id="recommendation" class="hidden">
-        <h2>Here are some similar movies!</h2>
-        <p id = "directions">Hover over a movie to read more</p>
-        <ul id="recommendation-list">
-        </ul>
-    </section>
-
+    <header role = "banner">
+        <h1 class = "">Movie Finder<i class="fas fa-video"></i></h1>
+        
+    </header>
     
-    </div>
+    <main role = "main">
+        <div class="container"> 
+            <form id="js-form">
+                <label for="search-movie">Enter a movie and you will be recommended a list of similar ones to enjoy</label> </br>
+                <input type="text" name="search-movie" id="js-search-movie" required placeholder="Avengers: Endgame">
+                <input type="submit" value="Find movies!">
+            </form>
+        </div>
+
+        <section id="errorMsg">
+        <p id="js-error-message" class="error-message"></p>
+        </section>
+        
+
+        <section id="movie" class="movie-hidden">
+            <ul id="searched-movie">
+            </ul>
+        </section>
+
+        <section id="recommendation" class="hidden">
+            <h2>Here are some similar movies!</h2>
+            <p id = "directions">Hover over a movie to read more</p>
+            <ul id="recommendation-list">
+            </ul>
+        </section>
+
+
+    </main>
     <script src="script.js"></script>
 </body>
 
