@@ -5,7 +5,7 @@
 https://tam135.github.io/API-Project--Movie-Finder/
 
 ## Summary
-Ever watched an amazing movie and wanted to find more movies that are similar to that one? This app lets users search up a movie and receive a list of recommended movies.
+Ever watched an amazing movie and wanted to find more movies that are similar to that one? This app lets users search up a movie and receive a list of recommended movies. Within the recommended movies, users can hover over a movie to see details such as the rating, release date, and plot synopsis
 
 ## Technologies Used
 Built with HTML, CSS Javascript, jQuery, and used theMovieDB API
